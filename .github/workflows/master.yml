@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: 
+      - master
+
+name: Testing Workflow
+
+jobs:
+  deploy:
+    name: Testing Workflow
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Read README.md
+      id: read-file
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: './README.md'
+
+    - name: Echo README.md
+      run:
+        echo ${{ steps.read-file.outputs.content }}
