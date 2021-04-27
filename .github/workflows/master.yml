@@ -22,4 +22,4 @@ jobs:
 
     - name: Echo README.md
       run:
-        echo ${{ steps.read-file.outputs.content }}
+        echo "${{ steps.read-file.outputs.content }}"
